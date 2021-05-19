@@ -8,10 +8,10 @@ header('content-type: application/json; charset=utf-8');
 
 
 //database local komputer
-// $host = "localhost";
-// $user = "root";
-// $pass = "";
-// $db = "bukukas";
+//$host = "localhost";
+//$user = "root";
+//$pass = "";
+//$db = "bukukas";
 
 // remote database lama
 // $host = "remotemysql.com";
@@ -328,18 +328,9 @@ function update(){
     $income = $obj['income'];
     $spending = $obj['spending'];
     $note = $obj['note'];
-    if($income){
-        $set[] = "income='$income'";
-    }
-    if($spending){
-        $set[] = "spending='$spending'";
-    }
-    if($note){
-        $set[] = "note='$note'";
-    }
     $hasil = "Gagal melakukan update data";
     if($income or $spending or $note){
-        $sql = "UPDATE post SET ".implode(",",$set).",datetime=now() WHERE id = '$id' AND id_user = '$id_user'";
+        $sql = "UPDATE post SET income='$income',spending='$spending',note='$note',datetime=now() WHERE id = '$id' AND id_user = '$id_user'";
         $query = mysqli_query($connection,$sql);
         if($query){
             $hasil = "Data berhasil diupdate";

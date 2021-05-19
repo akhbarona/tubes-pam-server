@@ -306,7 +306,7 @@ function createpost(){
     $income = $obj['income'];
     $spending = $obj['spending'];
     $note = $obj['note'];
-    if($id_user and $income and $spending){
+    if($id_user or $income or $spending){
         $sql = "INSERT INTO post(id_user,income,spending,note) VALUES ('$id_user','$income','$spending','$note')";
         $query = mysqli_query($connection,$sql);
         if($query){
